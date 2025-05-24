@@ -13,7 +13,7 @@ Bu Tool'un amacı, siber güvenlik, yazılım geliştirme ve ağ iletişimi konu
 Kodun hiçbir şekilde kötüye kullanımı teşvik edilmemektedir.
 
 BILGILENDIRME:
-Bu Tool "https://github.com/LegaCY1973" adresine aittir.
+Bu Tool "https://github.com/s4m3dnotfound" adresine aittir.
 
 KULLANICI TARAFINDAN KABUL EDİLEN ŞARTLAR:
 Bu Tool'u yalnızca kendi sahip olduğunuz sistemler üzerinde veya yazılı izninizin olduğu sistemlerde kullanmayı kabul etmektesiniz.
