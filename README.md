@@ -2,7 +2,7 @@
 ![image](https://github.com/user-attachments/assets/093280e8-935b-4e1d-ae4e-fffa80c6f1f1)  
 
 # 👨🏻‍💻TERMUX KURULUMU
-1-) pk install git
+1-) pkg install git
 
 2-) pkg install python
 
