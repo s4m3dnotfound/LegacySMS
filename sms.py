@@ -38,7 +38,7 @@ class SendSms():
             else:
                 raise
         except:    
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> api.kahvedunyasi.com")
+            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> api.kahvedunyasi.com")
         
 
     #wmf.com.tr
@@ -169,7 +169,7 @@ class SendSms():
             json={"telephone": f"+90{self.phone}", "type": "register"}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> api.naosstars.com")
+                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> api.naosstars.com")
                 self.adet += 1
             else:
                 raise
