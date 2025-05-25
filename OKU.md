@@ -1,26 +1,10 @@
-# 📸GÖRSEL
-![image](https://github.com/user-attachments/assets/093280e8-935b-4e1d-ae4e-fffa80c6f1f1)  
+.____     ___________ ________    _____  ______________.___.                         
+|    |    \_   _____//  _____/   /  _  \ \_   ___ \__  |   |    ______ _____   ______
+|    |     |    __)_/   \  ___  /  /_\  \/    \  \//   |   |   /  ___//     \ /  ___/
+|    |___  |        \    \_\  \/    |    \     \___\____   |   \___ \|  Y Y  \\___ \ 
+|_______ \/_______  /\______  /\____|__  /\______  / ______|  /____  >__|_|  /____  >
+        \/        \/        \/         \/        \/\/              \/      \/     \/ 
 
-# 👨🏻‍💻TERMUX KURULUMU
-1-) pk install git
-
-2-) pkg install python
-
-3-) apt upgrade
-
-4-) apt upgrade
-
-5-) pip install colorama
-
-6-) git clone https://github.com/s4m3dnotfound/LegacySMS.git
-
-7-) cd LegacySMS
-
-8-) pip install -r requirements.txt
-
-9-) python LegacySMS.py
-
-# 📜YASAL AÇIKLAMA
 SORUMLULUK REDDİ BEYANI (Disclaimers for Educational SMS Testing Script)
 
 UYARI:
@@ -29,7 +13,7 @@ Bu Tool'un amacı, siber güvenlik, yazılım geliştirme ve ağ iletişimi konu
 Kodun hiçbir şekilde kötüye kullanımı teşvik edilmemektedir.
 
 BILGILENDIRME:
-Bu Tool "https://github.com/LegaCY1973" adresine aittir.
+Bu Tool "https://github.com/s4m3dnotfound/LegacySMS" adresine aittir.
 
 KULLANICI TARAFINDAN KABUL EDİLEN ŞARTLAR:
 Bu Tool'u yalnızca kendi sahip olduğunuz sistemler üzerinde veya yazılı izninizin olduğu sistemlerde kullanmayı kabul etmektesiniz.

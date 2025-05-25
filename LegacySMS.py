@@ -4,6 +4,8 @@ from os import system
 from sms import SendSms
 import threading
 
+#Bu Tool https://github.com/s4m3dnotfound/LegacySMS Adresine Aittir...
+
 servisler_sms = []
 for attribute in dir(SendSms):
     attribute_value = getattr(SendSms, attribute)
@@ -11,6 +13,7 @@ for attribute in dir(SendSms):
         if attribute.startswith('__') == False:
             servisler_sms.append(attribute)
 
+#Bu Tool https://github.com/s4m3dnotfound/LegacySMS Adresine Aittir...
             
 while 1:
     system("cls||clear")
@@ -22,7 +25,6 @@ while 1:
     |_______ \/_______  /\______  /\____|__  /\______  / ______|  /____  >__|_|  /____  >
             \/        \/        \/         \/        \/\/              \/      \/     \/ 
 
-    
     UYARI: Tamamen Eğitim Amaçlıdır. {}    {}Geliştirici:{}@s4m3dnotfound\n  
     """.format(Fore.LIGHTCYAN_EX, "", Style.RESET_ALL, Fore.LIGHTRED_EX))
     try:
@@ -64,7 +66,7 @@ while 1:
                 sonsuz = "(Sonsuz ise 'enter' tuşuna basınız)"  
             except ValueError:
                 system("cls||clear")
-                print(Fore.LIGHTRED_EX + "Hatalı telefon numarası. Tekrar deneyiniz.") 
+                print(Fore.LIGHTRED_EX + "Telefon Numarası Geçersiz. Tekrar dene.") 
                 sleep(3)
                 continue
         system("cls||clear")
@@ -128,3 +130,5 @@ while 1:
         system("cls||clear")
         print(Fore.LIGHTRED_EX + "Çıkış yapılıyor...")
         break
+
+#Bu Tool https://github.com/s4m3dnotfound/LegacySMS Adresine Aittir...

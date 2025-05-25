@@ -3,7 +3,7 @@ from random import choice, randint
 from string import ascii_lowercase
 from colorama import Fore, Style
 
-
+#Bu Tool "https://github.com/s4m3dnotfound/LegacySMS" adresine aittir.
 class SendSms():
     adet = 0
     
@@ -98,6 +98,7 @@ class SendSms():
         except:
             print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> suiste.com")
                 
+#Bu Tool "https://github.com/s4m3dnotfound/LegacySMS" adresine aittir.
     
     #KimGbIster
     def KimGb(self):
@@ -366,3 +367,5 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> gandalf.orwi.app")
+
+#Bu Tool "https://github.com/s4m3dnotfound/LegacySMS" adresine aittir.
