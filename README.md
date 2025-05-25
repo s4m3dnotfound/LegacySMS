@@ -8,7 +8,7 @@
 
 𝟯-) apt upgrade
 
-𝟰-) apt upgrade
+𝟰-) apt update
 
 𝟱-) pip install colorama
 
