@@ -39,7 +39,7 @@ while 1:
         continue
     if menu == 1:
         system("cls||clear")
-        print(Fore.LIGHTWHITE_EX + "Telefon numarasını başında '+90' olmadan yazınız: "+ Fore.LIGHTGREEN_EX, end="")
+        print(Fore.LIGHTWHITE_EX + "Hedef numarayı +90 eklemeden yazın(sadece türk numaralar): "+ Fore.LIGHTGREEN_EX, end="")
         tel_no = input()
         tel_liste = []
         if tel_no == "":
@@ -71,7 +71,7 @@ while 1:
                 continue
         system("cls||clear")
         try:
-            print(Fore.LIGHTWHITE_EX + "Sonraki Adım İçin 'enter' Tuşuna Bas: "+ Fore.LIGHTGREEN_EX, end="")
+            print(Fore.LIGHTWHITE_EX + "yazdığın numarayı onaylamak için 'enter' tuşuna bas: "+ Fore.LIGHTGREEN_EX, end="")
             mail = input()
             if ("@" not in mail or ".com" not in mail) and mail != "":
                 raise
@@ -82,7 +82,7 @@ while 1:
             continue
         system("cls||clear")
         try:
-            print(Fore.LIGHTWHITE_EX + f"Kaç adet SMS göndermek istiyorsun {sonsuz}: "+ Fore.LIGHTGREEN_EX, end="")
+            print(Fore.LIGHTWHITE_EX + f"Kaç adet SMS göndermek istiyorsun: "+ Fore.LIGHTGREEN_EX, end="")
             kere = input()
             if kere:
                 kere = int(kere)
@@ -95,7 +95,7 @@ while 1:
             continue
         system("cls||clear")
         try:
-            print(Fore.LIGHTWHITE_EX + "Kaç saniye aralıkla göndermek istiyorsun: "+ Fore.LIGHTGREEN_EX, end="")
+            print(Fore.LIGHTWHITE_EX + "SMS'ler kaç saniye aralıkla gönderilsin?: "+ Fore.LIGHTGREEN_EX, end="")
             aralik = int(input())
         except ValueError:
             system("cls||clear")
@@ -124,7 +124,7 @@ while 1:
                                         break
                                     exec("sms."+attribute+"()")
                                     sleep(aralik)
-        print(Fore.LIGHTRED_EX + "\nMenüye dönmek için 'enter' tuşuna basınız..")
+        print(Fore.LIGHTRED_EX + "\nAna ekrana dönmek için 'Enter' tuşuna bas")
         input()
     elif menu == 2:
         system("cls||clear")
