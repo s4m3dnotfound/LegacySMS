@@ -26,9 +26,9 @@ while 1:
             \/        \/        \/         \/        \/\/              \/      \/     \/ 
 
     UYARI: Tamamen Eğitim Amaçlıdır. {}    {}Geliştirici:{}@s4m3dnotfound\n  
-    """.format(Fore.LIGHTCYAN_EX, "", Style.RESET_ALL, Fore.LIGHTRED_EX))
+    """.format(Fore.LIGHTGREEN_EX, "", Style.RESET_ALL, Fore.LIGHTRED_EX))
     try:
-        menu = (input(Fore.LIGHTMAGENTA_EX + " 1- SMS Gönder\n\n 2- Çıkış\n\n" + Fore.LIGHTYELLOW_EX + " Seçim: "))
+        menu = (input(Fore.LIGHTWHITE_EX + " 1- SMS Gönder\n\n 2- Çıkış\n\n" + Fore.LIGHTGREEN_EX + " Seçim: "))
         if menu == "":
             continue
         menu = int(menu) 
@@ -39,12 +39,12 @@ while 1:
         continue
     if menu == 1:
         system("cls||clear")
-        print(Fore.LIGHTYELLOW_EX + "Telefon numarasını başında '+90' olmadan yazınız: "+ Fore.LIGHTGREEN_EX, end="")
+        print(Fore.LIGHTWHITE_EX + "Telefon numarasını başında '+90' olmadan yazınız: "+ Fore.LIGHTGREEN_EX, end="")
         tel_no = input()
         tel_liste = []
         if tel_no == "":
             system("cls||clear")
-            print(Fore.LIGHTYELLOW_EX + "Numarayı Yazmadan Neden 'enter' Tuşuna Bastın Mal Mısın?: "+ Fore.LIGHTGREEN_EX, end="")
+            print(Fore.LIGHTWHITE_EX + "Numarayı Yazmadan Neden 'enter' Tuşuna Bastın Mal Mısın?: "+ Fore.LIGHTGREEN_EX, end="")
             dizin = input()
             try:
                 with open(dizin, "r", encoding="utf-8") as f:
@@ -71,7 +71,7 @@ while 1:
                 continue
         system("cls||clear")
         try:
-            print(Fore.LIGHTYELLOW_EX + "Sonraki Adım İçin 'enter' Tuşuna Bas: "+ Fore.LIGHTGREEN_EX, end="")
+            print(Fore.LIGHTWHITE_EX + "Sonraki Adım İçin 'enter' Tuşuna Bas: "+ Fore.LIGHTGREEN_EX, end="")
             mail = input()
             if ("@" not in mail or ".com" not in mail) and mail != "":
                 raise
@@ -82,7 +82,7 @@ while 1:
             continue
         system("cls||clear")
         try:
-            print(Fore.LIGHTYELLOW_EX + f"Kaç adet SMS göndermek istiyorsun {sonsuz}: "+ Fore.LIGHTGREEN_EX, end="")
+            print(Fore.LIGHTWHITE_EX + f"Kaç adet SMS göndermek istiyorsun {sonsuz}: "+ Fore.LIGHTGREEN_EX, end="")
             kere = input()
             if kere:
                 kere = int(kere)
@@ -95,7 +95,7 @@ while 1:
             continue
         system("cls||clear")
         try:
-            print(Fore.LIGHTYELLOW_EX + "Kaç saniye aralıkla göndermek istiyorsun: "+ Fore.LIGHTGREEN_EX, end="")
+            print(Fore.LIGHTWHITE_EX + "Kaç saniye aralıkla göndermek istiyorsun: "+ Fore.LIGHTGREEN_EX, end="")
             aralik = int(input())
         except ValueError:
             system("cls||clear")
