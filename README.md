@@ -1,5 +1,7 @@
 # 📸GÖRSEL
-![image](https://github.com/user-attachments/assets/093280e8-935b-4e1d-ae4e-fffa80c6f1f1)  
+![LegacySMS](https://github.com/user-attachments/assets/c4efbf82-3eec-434d-987b-b7ecde0c88af)
+
+
 
 # 👨🏻‍💻TERMUX KURULUMU
 𝟭-) pkg install git
@@ -19,6 +21,8 @@
 𝟴-) pip install -r requirements.txt
 
 𝟵-) python LegacySMS.py
+
+
 
 # 📜YASAL AÇIKLAMA
 𝗦𝗢𝗥𝗨𝗠𝗟𝗨𝗟𝗨𝗞 𝗥𝗘𝗗𝗗𝗜̇ 𝗕𝗘𝗬𝗔𝗡𝗜 (𝗗𝗶𝘀𝗰𝗹𝗮𝗶𝗺𝗲𝗿𝘀 𝗳𝗼𝗿 𝗘𝗱𝘂𝗰𝗮𝘁𝗶𝗼𝗻𝗮𝗹 𝗦𝗠𝗦 𝗧𝗲𝘀𝘁𝗶𝗻𝗴 𝗦𝗰𝗿𝗶𝗽𝘁)
