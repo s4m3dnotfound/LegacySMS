@@ -25,7 +25,7 @@ while 1:
     |_______ \/_______  /\______  /\____|__  /\______  / ______|  /____  >__|_|  /____  >
             \/        \/        \/         \/        \/\/              \/      \/     \/ 
 
-    UYARI: Tamamen Eğitim Amaçlıdır. {}    {}Geliştirici:{}@s4m3dnotfound\n  
+    UYARI: Tamamen Eğitim Amaçlıdır. {}    {}Geliştirici:{}@s4m3dddd\n  
     """.format(Fore.LIGHTGREEN_EX, "", Style.RESET_ALL, Fore.LIGHTRED_EX))
     try:
         menu = (input(Fore.LIGHTWHITE_EX + " 1- SMS Gönder\n\n 2- Çıkış\n\n" + Fore.LIGHTGREEN_EX + " Seçim: "))
