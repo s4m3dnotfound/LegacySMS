@@ -1,7 +1,7 @@
 from colorama import Fore, Style
 from time import sleep
 from os import system
-from sms import SendSms
+from sms_api import SendSms
 import threading
 
 #Bu Tool https://github.com/s4m3dnotfound/LegacySMS Adresine Aittir...
@@ -25,7 +25,7 @@ while 1:
     |_______ \/_______  /\______  /\____|__  /\______  / ______|  /____  >__|_|  /____  >
             \/        \/        \/         \/        \/\/              \/      \/     \/ 
     UYARI: Tamamen Eğitim Amaçlıdır. {}    {}Geliştirici :{}@s4m3dddd\n  
-    """.format(Fore.LIGHGREEN_EX, "", Style.RESET_ALL, Fore.LIGHTYELLOW_EX))
+    """.format(Fore.LIGHTGREEN_EX, "", Style.RESET_ALL, Fore.LIGHTYELLOW_EX))
     try:
         menu = (input(Fore.LIGHTWHITE_EX + " 1- SMS Gönder\n\n 2- Çıkış\n\n" + Fore.LIGHTGREEN_EX + " Seçim: "))
         if menu == "":
@@ -38,7 +38,7 @@ while 1:
         continue
     if menu == 1:
         system("cls||clear")
-        print(Fore.LIGHTWHITE_EX + "Hedef numarayı +90 eklemeden yazın(sadece türk numaralar): "+ Fore.LIGHTGREEN_EX, end="")
+        print(Fore.LIGHTWHITE_EX + "Hedef numarayı +90 eklemeden yazın (sadece Türk numaralar): "+ Fore.LIGHTGREEN_EX, end="")
         tel_no = input()
         tel_liste = []
         if tel_no == "":
@@ -114,15 +114,15 @@ while 1:
         for i in tel_liste:
             sms = SendSms(i, mail)
             if isinstance(kere, int):
-                    while sms.adet < kere:
-                        for attribute in dir(SendSms):
-                            attribute_value = getattr(SendSms, attribute)
-                            if callable(attribute_value):
-                                if attribute.startswith('__') == False:
-                                    if sms.adet == kere:
-                                        break
-                                    exec("sms."+attribute+"()")
-                                    sleep(aralik)
+                while sms.adet < kere:
+                    for attribute in dir(SendSms):
+                        attribute_value = getattr(SendSms, attribute)
+                        if callable(attribute_value):
+                            if attribute.startswith('__') == False:
+                                if sms.adet == kere:
+                                    break
+                                exec("sms."+attribute+"()")
+                                sleep(aralik)
         print(Fore.LIGHTRED_EX + "\nAna ekrana dönmek için 'Enter' tuşuna bas")
         input()
     elif menu == 2:
