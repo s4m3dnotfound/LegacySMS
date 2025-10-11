@@ -2,10 +2,9 @@
 ![LegacySMS](https://github.com/user-attachments/assets/c4efbf82-3eec-434d-987b-b7ecde0c88af)
 
 <a href="https://hits.sh/github.com/s4m3dnotfound/LegacySMS/">
-  <img src="https://hits.sh/github.com/s4m3dnotfound/LegacySMS.svg?style=flat-square&label=görüntülenme&color=4caf50" 
-       alt="Ziyaret Sayısı" 
-       width="240">
+  <img src="https://hits.sh/github.com/s4m3dnotfound/LegacySMS.svg?style=flat-square&label=görüntülenme&color=4caf50" alt="Ziyaret Sayısı" width="250">
 </a>
+
 
 
 
