@@ -51,7 +51,7 @@ while 1:
                     for i in f.read().strip().split("\n"):
                         if len(i) == 10:
                             tel_liste.append(i)
-                sonsuz = "sonsuz"
+                sonsuz = ""
             except FileNotFoundError:
                 system("cls||clear")
                 print(Fore.LIGHTRED_EX + "Kafana Sıçayım O Zaman.")
@@ -63,7 +63,7 @@ while 1:
                 if len(tel_no) != 10:
                     raise ValueError
                 tel_liste.append(tel_no)
-                sonsuz = "(Sonsuz için 'sonsuz' yaz)"  
+                sonsuz = "(Sonsuz ise 'enter' tuşuna basınız)"  
             except ValueError:
                 system("cls||clear")
                 print(Fore.LIGHTRED_EX + "Telefon Numarası Geçersiz. Tekrar dene.") 
@@ -82,7 +82,7 @@ while 1:
             continue
         system("cls||clear")
         try:
-            print(Fore.LIGHTWHITE_EX + f"Kaç adet SMS göndermek istiyorsun? [Sonsuz için 'sonsuz' yaz]: "+ Fore.LIGHTGREEN_EX, end="")
+            print(Fore.LIGHTWHITE_EX + f"Kaç adet SMS göndermek istiyorsun? [Sonsuz için 'enter' tuşuna bas.]: "+ Fore.LIGHTGREEN_EX, end="")
             kere = input()
             if kere:
                 kere = int(kere)
