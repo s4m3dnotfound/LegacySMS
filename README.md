@@ -1,6 +1,7 @@
 # 📸GÖRSEL
 ![LegacySMS](https://github.com/user-attachments/assets/c4efbf82-3eec-434d-987b-b7ecde0c88af)
 
+[![Ziyaret Sayısı](https://hits.sh/github.com/s4m3dnotfound/LegacySMS.svg?style=flat-square&label=görüntülenme&color=4caf50)](https://hits.sh/github.com/s4m3dnotfound/LegacySMS/)
 
 
 # 👨🏻‍💻TERMUX KURULUMU
