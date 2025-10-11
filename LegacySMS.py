@@ -24,7 +24,6 @@ while 1:
     |    |___  |        \    \_\  \/    |    \     \___\____   |   \___ \|  Y Y  \\___ \ 
     |_______ \/_______  /\______  /\____|__  /\______  / ______|  /____  >__|_|  /____  >
             \/        \/        \/         \/        \/\/              \/      \/     \/ 
-
     UYARI: Tamamen Eğitim Amaçlıdır. {}    {}Geliştirici:{}@s4m3dddd\n  
     """.format(Fore.LIGHTRED_EX, "", Style.RESET_ALL, Fore.LIGHTYELLOW_EX))
     try:
