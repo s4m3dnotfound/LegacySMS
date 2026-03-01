@@ -6,7 +6,9 @@
 
 # ℹ️2026 GÜNCELLEMESİ
 -Çalışmayan ve Gereksiz SMS'ler silindi.
+
 -Tema değişti.
+
 -Hatalar giderildi.
 
 # 👨🏻‍💻TERMUX KURULUMU
