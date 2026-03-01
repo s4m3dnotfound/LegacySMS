@@ -7,6 +7,10 @@
 # ℹ️2026 GÜNCELLEMESİ
 -Çalışmayan ve Gereksiz SMS'ler silindi.
 
+-Bilgisayar kullanıcıları artık pyton indirmeden anında kullanabilecek.
+
+-Arayüz ve Bilgilendirme eklendi.
+
 -Tema değişti.
 
 -Hatalar giderildi.
