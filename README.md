@@ -1,8 +1,13 @@
 # 📸GÖRSEL
-![LegacySMS]()<img width="978" height="508" alt="Ekran Alıntısı" src="https://github.com/user-attachments/assets/3f54b00f-15ab-4574-be5c-e5cb285b1037" />
+<img width="978" height="508" alt="Ekran Alıntısı" src="https://github.com/user-attachments/assets/3f54b00f-15ab-4574-be5c-e5cb285b1037" />
 
 
 [![Ziyaret Sayısı](https://hits.sh/github.com/s4m3dnotfound/LegacySMS.svg?style=flat-square&label=görüntülenme&color=4caf50)](https://hits.sh/github.com/s4m3dnotfound/LegacySMS/)
+
+# ℹ️2026 GÜNCELLEMESİ
+-Çalışmayan ve Gereksiz SMS'ler silindi.
+-Tema değişti.
+-Hatalar giderildi.
 
 # 👨🏻‍💻TERMUX KURULUMU
 𝟭-) pkg install git
