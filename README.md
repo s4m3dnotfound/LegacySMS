@@ -1,7 +1,5 @@
 # 📸GÖRSEL
-<img width="978" height="508" alt="Ekran Alıntısı" src="https://github.com/user-attachments/assets/87b6abb3-0884-436e-9148-4143b6047145" />
-
-
+![LegacySMS](https://github.com/user-attachments/assets/c4efbf82-3eec-434d-987b-b7ecde0c88af)
 
 [![Ziyaret Sayısı](https://hits.sh/github.com/s4m3dnotfound/LegacySMS.svg?style=flat-square&label=görüntülenme&color=4caf50)](https://hits.sh/github.com/s4m3dnotfound/LegacySMS/)
 
