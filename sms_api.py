@@ -101,7 +101,7 @@ class SendSms():
             json={"job": "start_login", "phone": self.phone}
             r = requests.post(url=url, json=json, headers=headers, timeout=6)
             if r.json()["status"]== "success":
-                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}SMS Gönderildi! {self.phone} --> panel.porty.tech")
+                print(f"{Fore.LIGHTGREEN_EX}[√] {Style.RESET_ALL}SMS Gönderildi! {self.phone} --> Porty")
                 self.adet += 1
             else:
                 raise
